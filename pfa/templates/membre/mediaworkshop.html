@@ -1,0 +1,690 @@
+{% load static %}
+
+<!DOCTYPE html>
+  <!-- Coding by CodingLab | www.codinglabweb.com -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="{% static 'assets/css/style3.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets\css\style.css' %}">
+    <!----===== Boxicons CSS ===== -->
+   
+        <link rel="stylesheet" href="{% static 'assets\css\upload.css' %}" />
+
+    <!----===== Boxicons CSS ===== -->
+   
+   
+
+        <!-- Swiper CSS -->
+        <link rel="stylesheet" href="css/swiper-bundle.min.css">
+
+        <!-- CSS -->
+    
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            body{
+                background:#eee;
+              
+                color: #252424;
+            }
+            
+            .product-file-type .img-icon {
+              width: 46px;
+              height: 46px;
+              line-height: 46px;
+              font-weight: 600;
+              border-radius: 50%;
+              font-size: 18px;
+              text-align: center;
+            }
+            /* -- Text Color -- */
+            .text-white {
+              color: #ffffff !important;
+            }
+            
+            .text-black {
+              color: #282828 !important;
+            }
+            
+            .text-muted {
+              color: #8A98AC !important;
+            }
+            
+            .text-primary {
+              color: #6e81dc !important;
+            }
+            
+            .text-secondary {
+              color: #718093 !important;
+            }
+            
+            .text-success {
+              color: #5fc27e !important;
+            }
+            
+            .text-danger {
+              color: #f44455 !important;
+            }
+            
+            .text-warning {
+              color: #fcc100 !important;
+            }
+            
+            .text-info {
+              color: #72d0fb !important;
+            }
+            
+            .text-light {
+              color: #dcdde1 !important;
+            }
+            
+            .text-dark {
+              color: #2d3646 !important;
+            }
+            
+            
+            .primary-rgba {
+              background-color: rgba(110, 129, 220, 0.1);
+            }
+            
+            .secondary-rgba {
+              background-color: rgba(113, 128, 147, 0.1);
+            }
+            
+            .success-rgba {
+              background-color: rgba(95, 194, 126, 0.1);
+            }
+            
+            .danger-rgba {
+              background-color: rgba(244, 68, 85, 0.1);
+            }
+            
+            .warning-rgba {
+              background-color: rgba(252, 193, 0, 0.1);
+            }
+            
+            .info-rgba {
+              background-color: rgba(114, 208, 251, 0.1);
+            }
+            
+            .light-rgba {
+              background-color: rgba(220, 221, 225, 0.1);
+            }
+            
+            .dark-rgba {
+              background-color: rgba(45, 54, 70, 0.1);
+            }
+            
+            .card-header:first-child {
+                border-radius: calc(5px - 1px) calc(5px - 1px) 0 0;
+                padding: 15px 20px;
+            }
+            .card-header:first-child {
+                border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+            }
+            .card-header {
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+                background-color: transparent;
+            }
+            
+            .card {
+                border: none;
+                border-radius: 3px;
+                background-color: #ffffff;
+            }
+            .m-b-30 {
+                margin-bottom: 30px;
+            }
+            
+            .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+                font-weight: 600;
+                color: #282828;
+            }
+                </style>
+</head>
+
+
+
+
+
+<body>
+  <div class="header2">
+    <div class="header__left"> 
+    </div>   
+    <div class="header__middle">
+        <a href="{%  url 'main' %}"> <div class="header__option active">
+           <span class="material-icons"> home </span></a>
+         </div>
+         <div class="header__input" >
+             <span class="material-icons"> search </span><input type="text" placeholder="Search E-ART" />
+           </div>       
+           
+
+     <div class="header__option">
+     <a href="{% url 'explore2' %}">  <span class="material-icons"> explore </span></a>
+     </div>
+
+     
+     <div class="header__option">
+       <a href="{% url 'bibliotheque2' %}"><span class="material-icons"> local_library </span></a>
+     </div>
+   </div>
+
+   <div class="header__right">
+     <div class="header__info">
+       <img
+       class="user__avatar"
+       src="https://bootdey.com/img/Content/avatar/avatar6.png"
+       alt=""/>
+       <a href="{% url 'profiles' %}"> <strong style="color: blanchedalmond;">&ensp;{{user.username}}</strong></a> 
+   </div>
+     <span class="material-icons"> add </span>
+     
+     <span class="material-icons"> expand_more </span>
+     
+     
+   </div>
+ </div>
+
+
+
+
+<!------------>
+
+
+  
+    <!-------------->
+
+
+<div>
+
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <!--<img src="logo.png" alt="">-->
+                </span>
+
+                <div class="text logo-text">
+                  <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'assets/images/logo.png' %}" alt="Progressus HTML5 template"></a>
+                </div>
+         
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                <li class="search-box">
+                    <i class='bx bx-search icon'></i>
+                    <input type="text" placeholder="">
+                    
+
+
+
+
+
+
+
+                </li>
+         <ul class="menu-links">
+                  <li class="nav-link">
+                      <a href="{% url 'main' %}">
+                          <i class='bx bx-home-alt icon'  ></i>
+                          <span class="text nav-text" >Home</span>
+                      </a>
+                  </li>
+                  <li class="nav-link">
+                    <a href="{% url 'workshop' %}" >
+                        <i class='bx bxs-paint-roll icon' style="color:orange"></i>
+                        <span class="text nav-text" style="color:orange"  >Workshop</span>
+                    </a>
+                </li>
+
+                  
+                  <li class="nav-link">
+                    <a href="{% url 'message' %}" >
+                        <i class='bx bx-message icon' ></i>
+                        <span class="text nav-text"   >Message(4)</span>
+                    </a>
+                </li>
+
+                  <li class="nav-link">
+                      <a href="{% url 'notification' %}" >
+                          <i class='bx bx-bell icon' ></i>
+                          <span class="text nav-text"  >Notifications(1)</span>
+                      </a>
+                  </li>
+                  <li class="nav-link">
+                      <a href="{% url 'demand' %}">
+                          <i class='bx bx-git-pull-request icon'></i>
+                          <span class="text nav-text">Demand</span>
+                      </a>
+                  </li>
+                 </ul>
+
+
+
+          </div>
+
+          <div class="bottom-content">
+              <li class="">
+                  <a href="{% url 'log_out' %}">
+                      <i class='bx bx-log-out icon' ></i>
+                      <span class="text nav-text">Logout</span>
+                  </a>
+              </li>
+
+              <li class="mode">
+                  <div class="sun-moon">
+                      <i class='bx bx-moon icon moon'></i>
+                      <i class='bx bx-sun icon sun'></i>
+                  </div>
+                  <span class="mode-text text">Dark mode</span>
+
+                  <div class="toggle-switch">
+                      <span class="switch"></span>
+                  </div>
+              </li>
+              
+          </div>
+      </div>
+
+
+    </nav>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="main__body" >
+   
+    </head>
+    
+    <STYLE type="text/css">
+        H1 { text-align: right}
+       </STYLE>
+    <div class="container">
+        <H1>
+            <div>
+          <a href="#"  data-toggle="modal" data-target="#modal"  class="btn btn-primary" id="3"><i class="bx bx-plus me-1" ></i >Add New</a>
+            </div>
+        </H1> 
+    <div class="row">
+    <div class="col-md-6">
+    <div class="card m-b-30">
+    <div class="card-header">
+    <div class="row align-items-center">
+    <div class="col-8">
+        
+    <h5 class="card-title mb-0">Important Files</h5>
+    </div>
+    <div class="col-4">
+    <ul class="list-inline-group text-right mb-1 pl-0">
+    <li class="list-inline-item mr-0 font-12"><i class="feather icon-more-vertical- font-20 text-primary"></i></li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    <div class="card-body">
+    <div class="product-file-type">
+    <ul class="list-unstyled">
+    <li class="media mb-3">
+    <span class="mr-3 align-self-center img-icon primary-rgba text-primary">.doc</span>
+    <div class="media-body">
+    <h5 class="font-16 mb-1">Marketing Guidelines<i class="feather icon-download-cloud float-right"><H1><span style="color: rgb(255, 0, 0) ; cursor: pointer" class="material-icons" onclick="downloadFile()" >download</span></H1>
+    </i></h5>
+    <p>.doc, 5.3 MB</p>
+    </div>
+    </li>
+    <li class="media mb-3">
+    <span class="mr-3 align-self-center img-icon success-rgba text-success">.xls</span>
+    <div class="media-body">
+    <h5 class="font-16 mb-1">Complete Product Sheet<i class="feather icon-download-cloud float-right"><H1><span style="color: rgb(255, 0, 0) ; cursor: pointer" class="material-icons" onclick="downloadFile()">download</span></H1>
+    </i></h5>
+    <p>.xls, 2.5 MB</p>
+    </div>
+    </li>
+    <li class="media mb-3">
+    <span class="mr-3 align-self-center img-icon danger-rgba text-danger">.pdf</span>
+    <div class="media-body">
+    <h5 class="font-16 mb-1">Annual Sales Report 2018-19<i class="feather icon-download-cloud float-right"><H1><span style="color: rgb(255, 0, 0) ; cursor: pointer" class="material-icons" onclick="downloadFile()">download</span></H1>
+    </i></h5>
+    <p>.pdf, 10.5 MB</p>
+    </div>
+    </li>
+    <li class="media">
+    <span class="mr-3 align-self-center img-icon info-rgba text-info">.zip</span>
+    <div class="media-body">
+    <h5 class="font-16 mb-1">Brand Photography<i class="feather icon-download-cloud float-right"><H1><span style="color: rgb(255, 0, 0) ; cursor: pointer" class="material-icons" onclick="downloadFile()">download</span></H1>
+    </i></h5>
+    <p>.zip, 53.2 MB</p>
+    </div>
+    </li>
+    <li class="media mb-3">
+        <span class="mr-3 align-self-center img-icon primary-rgba text-primary">.doc</span>
+        <div class="media-body">
+            
+        <h5 class="font-16 mb-1">Marketing Guidelines<i class="feather icon-download-cloud float-right"><H1><span style="color: rgb(255, 0, 0) ; cursor: pointer" class="material-icons" onclick="downloadFile()">download</span></H1>
+        </i>     
+                     
+    </h5>   
+        <p>.doc, 5.3 MB</p>
+        </div>
+        </li>
+        <li class="media mb-3">
+        <span class="mr-3 align-self-center img-icon success-rgba text-success">.xls</span>
+        <div class="media-body">
+        <h5 class="font-16 mb-1">Complete Product Sheet<i class="feather icon-download-cloud float-right"><H1><span style="color: rgb(255, 0, 0) ; cursor: pointer" class="material-icons" onclick="downloadFile()">download</span></H1>
+        </i></h5>
+        <p>.xls, 2.5 MB</p>
+        </div>
+        </li>
+        <li class="media mb-3">
+        <span class="mr-3 align-self-center img-icon danger-rgba text-danger">.pdf</span>
+        <div class="media-body">
+        <h5 class="font-16 mb-1">Annual Sales Report 2018-19<i class="feather icon-download-cloud float-right"><H1><span style="color: rgb(255, 0, 0) ; cursor: pointer" class="material-icons" onclick="downloadFile()">download</span></H1>
+        </i></h5>
+        <p>.pdf, 10.5 MB</p>
+        </div>
+        </li>
+        <li class="media">
+        <span class="mr-3 align-self-center img-icon info-rgba text-info">.zip</span>
+        <div class="media-body">
+        <h5 class="font-16 mb-1">Brand Photography<i class="feather icon-download-cloud float-right"><H1><span style="color: rgb(255, 0, 0) ; cursor: pointer" class="material-icons" onclick="downloadFile()">download</span></H1>
+        </i></h5>
+        <p>.zip, 53.2 MB</p>
+        </div>
+        </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="col-md-6">
+    <div class="card m-b-30">
+    <div class="card-header">
+    <div class="row align-items-center">
+    <div class="col-8">
+    <h5 class="card-title mb-0"> </h5>
+    </div>
+    <div class="col-4">
+    </ul>
+    </div>
+    </div>
+    </div>
+    <div class="card-body">
+    <div class="product-file-type">
+    <ul class="list-unstyled">
+    <li class="media mb-3">
+    <span class="mr-3 align-self-center img-icon primary-rgba text-primary">.doc</span>
+    <div class="media-body">
+    <h5 class="font-16 mb-1">Marketing Guidelines<i class="feather icon-download-cloud float-right"><H1><span style="color: rgb(255, 0, 0) ; cursor: pointer" class="material-icons" onclick="downloadFile()">download</span></H1></i></h5>
+    <p>.doc, 5.3 MB</p>
+    </div>
+    </li>
+    <li class="media mb-3">
+    <span class="mr-3 align-self-center img-icon success-rgba text-success">.xls</span>
+    <div class="media-body">
+    <h5 class="font-16 mb-1">Complete Product Sheet<i class="feather icon-download-cloud float-right"><H1><span style="color: rgb(255, 0, 0) ; cursor: pointer" class="material-icons" onclick="downloadFile()">download</span></H1></i></h5>
+    <p>.xls, 2.5 MB</p>
+    </div>
+    </li>
+    <li class="media mb-3">
+    <span class="mr-3 align-self-center img-icon danger-rgba text-danger">.pdf</span>
+    <div class="media-body">
+    <h5 class="font-16 mb-1">Annual Sales Report 2018-19<i class="feather icon-download-cloud float-right"><H1><span style="color: rgb(255, 0, 0) ; cursor: pointer" class="material-icons" onclick="downloadFile()">download</span></H1></i></h5>
+    <p>.pdf, 10.5 MB</p>
+    </div>
+    </li>
+    <li class="media">
+    <span class="mr-3 align-self-center img-icon info-rgba text-info">.zip</span>
+    <div class="media-body">
+    <h5 class="font-16 mb-1">Brand Photography<i class="feather icon-download-cloud float-right"><H1><span style="color: rgb(255, 0, 0) ; cursor: pointer" class="material-icons" onclick="downloadFile()">download</span></H1></i></h5>
+    <p>.zip, 53.2 MB</p>
+    </div>
+    </li>
+    <li class="media mb-3">
+        <span class="mr-3 align-self-center img-icon success-rgba text-success">.xls</span>
+        <div class="media-body">
+        <h5 class="font-16 mb-1">Complete Product Sheet<i class="feather icon-download-cloud float-right"><H1><span style="color: rgb(255, 0, 0) ; cursor: pointer" class="material-icons" onclick="downloadFile()">download</span></H1></i></i></h5>
+        <p>.xls, 2.5 MB</p>
+        </div>
+        </li>
+        <li class="media mb-3">
+        <span class="mr-3 align-self-center img-icon danger-rgba text-danger">.pdf</span>
+        <div class="media-body">
+        <h5 class="font-16 mb-1">Annual Sales Report 2018-19<i class="feather icon-download-cloud float-right"><H1><span style="color: rgb(255, 0, 0) ; cursor: pointer" class="material-icons" onclick="downloadFile()">download</span></H1></i></i></h5>
+        <p>.pdf, 10.5 MB</p>
+        </div>
+        </li>
+        <li class="media">
+        <span class="mr-3 align-self-center img-icon info-rgba text-info">.zip</span>
+        <div class="media-body">
+        <h5 class="font-16 mb-1">Brand Photography<i class="feather icon-download-cloud float-right"><H1><span style="color: rgb(255, 0, 0) ; cursor: pointer" class="material-icons" onclick="downloadFile()">download</span></H1></i></i></h5>
+        <p>.zip, 53.2 MB</p>
+        </div>
+        </li>
+        <li class="media mb-3">
+            <span class="mr-3 align-self-center img-icon success-rgba text-success">.xls</span>
+            <div class="media-body">
+            <h5 class="font-16 mb-1">Complete Product Sheet<i class="feather icon-download-cloud float-right"><H1>
+                
+                <span style="color: rgb(255, 0, 0) ; cursor: pointer" class="material-icons" onclick="downloadFile()">download</span></H1>
+            </i></i></h5>
+            <p>.xls, 2.5 MB</p>
+            </div>
+            </li>
+          
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+<!-- Modal HTML Markup -->
+<div id="modal" class="modal fade">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1  class="modal-title"></i> </h1>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" method="POST" action="">
+                  <div class="form-group">
+                    <div>
+                      
+  <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <div class="file-upload">
+  
+   
+    <div class="file-upload-content">
+      <img class="file-upload-image" src="#" alt="your file" />
+      <div class="image-title-wrap">
+      </div>
+    </div>
+  </div>
+  
+  
+  <script>
+      function readURL(input) {
+    if (input.files && input.files[0]) {
+  
+      var reader = new FileReader();
+  
+      reader.onload = function(e) {
+        $('.image-upload-wrap').hide();
+  
+        $('.file-upload-image').attr('src', e.target.result);
+        $('.file-upload-content').show();
+  
+        $('.image-title').html(input.files[0].name);
+      };
+  
+      reader.readAsDataURL(input.files[0]);
+  
+    } else {
+      removeUpload();
+    }
+  }
+  
+  function removeUpload() {
+    $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+    $('.file-upload-content').hide();
+    $('.image-upload-wrap').show();
+  }
+  $('.image-upload-wrap').bind('dragover', function () {
+          $('.image-upload-wrap').addClass('image-dropping');
+      });
+      $('.image-upload-wrap').bind('dragleave', function () {
+          $('.image-upload-wrap').removeClass('image-dropping');
+  });
+  
+  </script>
+     
+        
+                    </div>
+                   </div>
+                   <div class="form-group">
+                         <input  type="file" id="myFile" name="filename">
+                </div>
+                    <div class="form-group">
+                        <label for="Name" class="control-label">Name</label>
+                        <div>
+                            <input id="name" type="name" class="form-control" name="name" value="" autofocus>
+                        </div>
+                    </div>
+  
+                     
+                    
+                   
+                  <div class="form-group">
+                    <label for="description" class="control-label">Description</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+               
+                    <div class="form-group">
+                        <div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="remember"> &ensp;Public
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+  
+                    <div class="form-group">
+                        <div>
+                            <button type="submit" class="btn btn-primary" onclick="window.open('mediaworkshop.html')">
+                                Save
+                            </button>
+                            
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+  
+
+
+
+
+
+
+
+<script>
+    
+    const body = document.querySelector('body'),
+  sidebar = body.querySelector('nav'),
+  toggle = body.querySelector(".toggle"),
+  searchBtn = body.querySelector(".search-box"),
+  modeSwitch = body.querySelector(".toggle-switch"),
+  modeText = body.querySelector("mode-text");
+ like=document.getElementById("1");
+
+toggle.addEventListener("click" , () =>{
+sidebar.classList.toggle("close");
+})
+
+searchBtn.addEventListener("click" , () =>{
+sidebar.classList.remove("close");
+})
+
+modeSwitch.addEventListener("click" , () =>{
+body.classList.toggle("dark");
+
+if(body.classList.contains("dark")){
+    modeText.innerText = "Light mode";
+}else{
+    modeText.innerText = "Dark mode";
+    
+
+}
+});
+
+
+
+
+
+let button = document.querySelector(".like-button");
+
+button.addEventListener("click", function(e) {
+e.preventDefault();
+this.classList.toggle("active");
+
+
+});
+
+
+
+
+
+
+</script>
+
+<script src="js/swiper-bundle.min.js"></script>
+<script src="{% static 'js/style2.js' %}"></script>
+
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+
+</body>
+
+<!-- Swiper JS -->
+  <!--Uncomment this line-->
+<!--<script src="js/swiper-bundle.min.js"></script>-->
+
+<!-- JavaScript -->
+  <!--Uncomment this line-->
+<!--<-->
+</html>
+
+
+

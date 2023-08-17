@@ -1,0 +1,719 @@
+{% load static %}
+
+<!DOCTYPE html>
+  <!-- Coding by CodingLab | www.codinglabweb.com -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="{% static 'assets/css/style3.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets\css\style.css' %}">
+    <!----===== Boxicons CSS ===== -->
+   
+    
+    <!--<title>Dashboard Sidebar Menu</title>--> 
+
+
+    <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--<title>Responsive Card Slider</title>-->
+
+        <!-- Swiper CSS -->
+        <link rel="stylesheet" href="css/swiper-bundle.min.css">
+
+        <!-- CSS -->
+       
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+
+
+
+
+<body>
+    <div class="header2">
+        <div class="header__left"> 
+        </div>   
+        <div class="header__middle">
+            <a href="{%  url 'main' %}"> <div class="header__option active">
+               <span class="material-icons"> home </span></a>
+             </div>
+             <div class="header__input" >
+                 <span class="material-icons"> search </span><input type="text" placeholder="Search E-ART" />
+               </div>       
+               
+ 
+         <div class="header__option">
+         <a href="{% url 'explore2' %}">  <span class="material-icons"> explore </span></a>
+         </div>
+ 
+         
+         <div class="header__option">
+           <a href="{% url 'bibliotheque2' %}"><span class="material-icons"> local_library </span></a>
+         </div>
+       </div>
+ 
+       <div class="header__right">
+         <div class="header__info">
+           <img
+           class="user__avatar"
+           src="https://bootdey.com/img/Content/avatar/avatar6.png"
+           alt=""/>
+           <a href="{% url 'profiles' %}"> <strong style="color: blanchedalmond;">&ensp;{{user.username}}</strong></a> 
+       </div>
+         <span class="material-icons"> add </span>
+         
+         <span class="material-icons"> expand_more </span>
+         
+         
+       </div>
+     </div>
+
+
+
+
+   <!------------>
+
+
+      
+        <!-------------->
+
+
+<div>
+    
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <!--<img src="logo.png" alt="">-->
+                </span>
+
+                <div class="text logo-text">
+                    <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'assets/images/logo.png' %}" alt="Progressus HTML5 template"></a>
+                </div>
+         
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                <li class="search-box">
+                    <i class='bx bx-search icon'></i>
+                    <input type="text" placeholder="">
+                    
+
+
+
+
+
+
+
+                </li>
+
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="{% url 'main' %}">
+                            <i class='bx bx-home-alt icon'  ></i>
+                            <span class="text nav-text"  >Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                      <a href="{% url 'workshop' %}" >
+                          <i class='bx bxs-paint-roll icon' style="color:orange"></i>
+                          <span class="text nav-text"  style="color:orange" >Workshop</span>
+                      </a>
+                  </li>
+
+                    
+                    <li class="nav-link">
+                      <a href="{% url 'message' %}" >
+                          <i class='bx bx-message icon' ></i>
+                          <span class="text nav-text"   >Message(4)</span>
+                      </a>
+                  </li>
+
+                    <li class="nav-link">
+                        <a href="{% url 'notification' %}" >
+                            <i class='bx bx-bell icon' ></i>
+                            <span class="text nav-text"  >Notifications(1)</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="{% url 'demand' %}">
+                            <i class='bx bx-git-pull-request icon'></i>
+                            <span class="text nav-text">Demand</span>
+                        </a>
+                    </li>
+  
+
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a href="{% url 'log_out' %}">
+                        <i class='bx bx-log-out icon' ></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+                
+            </div>
+        </div>
+
+    </nav>
+
+
+
+
+
+    <!----ceci est dinamique---->
+ <!-------->
+    <div class="main__body" >
+        <html lang="en">
+<head>
+<meta charset="utf-8">
+
+
+<title>bs4 beta gallery - Bootdey.com</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://netdna.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
+<style type="text/css">
+/* =============
+   Gallery
+============= */
+
+.overlay-container {
+    position: relative;
+}
+
+.project-item img.gallery-thumb-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.project-item-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    border-radius: 5px;
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.8) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.8) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.8) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    transition: .5s ease;
+}
+
+.project-item-overlay h4 {
+    font-size: 18px;
+    font-weight: 500;
+    white-space: nowrap;
+    color: white;
+    position: absolute;
+    overflow: hidden;
+    top: 7%;
+    left: 7%;
+    margin: 0;
+    text-overflow: ellipsis;
+}
+
+.project-item-overlay p {
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+    color: white;
+    position: absolute;
+    overflow: hidden;
+    bottom: 7%;
+    left: 7%;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
+.overlay-container:hover .project-item-overlay {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    height: 100%;
+    width: 100%;
+    transition: .5s ease;
+}
+
+.thumb-sm {
+    height: 32px;
+    width: 32px;
+}
+
+.rounded-circle {
+    border-radius: 50%;
+}
+    </style>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="col-md-3 col-sm-6">
+<a href="#" class="gallery-popup" title="Open Imagination">
+<div class="project-item">
+<div class="overlay-container" onclick="functiongo()">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOkB8bYRw9T39mqKTfZdpn6BVuEEmAkiJVug&usqp=CAU" alt="img" class="gallery-thumb-img">
+<div class="project-item-overlay">
+<h4>Open Imagination</h4>
+<p>
+<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="user" class="thumb-sm rounded-circle">
+<span class="ml-2">Curtis Marion</span>
+</p>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="col-md-3 col-sm-6">
+<a href="#" class="gallery-popup" title="Locked Steel Gate">
+<div class="project-item">
+<div class="overlay-container" onclick="functiongo()"> 
+<img src="https://media.istockphoto.com/id/1011385378/photo/colorful-oil-painting-on-canvas-texture-impressionism-image-of-seascape-paintings-with.jpg?s=170667a&w=0&k=20&c=CkL-Pt5zBsPu52lXwEjaXDrtC3lH-lqhHhZIr05Sv80=" alt="img" class="gallery-thumb-img">
+<div class="project-item-overlay">
+<h4>Locked Steel Gate</h4>
+<p>
+<img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="user" class="thumb-sm rounded-circle">
+<span class="ml-2">Curtis Marion</span>
+</p>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="col-md-3 col-sm-6">
+<a href="#" class="gallery-popup" title="Mac Sunglasses">
+<div class="project-item">
+<div class="overlay-container" onclick="functiongo()">
+<img src="https://images.squarespace-cdn.com/content/v1/524a9fa7e4b025e8f3303124/1662969186563-BTLDYTPYFUJ1TPZHHMKD/Mel+Brigg+The+arrivals%2C+2022+Acrylic+on+canvas76+x+102+cm%2411%2C800.00.jpeg?format=500w" alt="img" class="gallery-thumb-img">
+<div class="project-item-overlay">
+<h4>Mac Sunglasses</h4>
+<p>
+<img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="user" class="thumb-sm rounded-circle">
+<span class="ml-2">Curtis Marion</span>
+</p>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="col-md-3 col-sm-6">
+<a href="#" class="gallery-popup" title="Morning Dew">
+<div class="project-item">
+<div class="overlay-container" onclick="functiongo()">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1Kbzp9nucyaWPrjV6ibbZjXvto9p3YCrXwf5ho1akF9VJPBnGBshGfC_NW0UKusoLjcM&usqp=CAU" alt="img" class="gallery-thumb-img">
+<div class="project-item-overlay">
+<h4>Morning Dew</h4>
+<p>
+<img src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="user" class="thumb-sm rounded-circle">
+<span class="ml-2">Curtis Marion</span>
+</p>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="col-md-3 col-sm-6">
+<a href="#" class="gallery-popup" title="Console Activity">
+<div class="project-item">
+<div class="overlay-container" onclick="functiongo()">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlzoiEmW6mQFUHLZ5xBXJFn6R-0w5cbzebDu1PiYCeppt45G906rW_H6x66Ps8LUgOI3k&usqp=CAU" alt="img" class="gallery-thumb-img">
+<div class="project-item-overlay" >
+<h4>Console Activity</h4>
+<p>
+<img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="user" class="thumb-sm rounded-circle">
+<span class="ml-2">Curtis Marion</span>
+</p>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="col-md-3 col-sm-6">
+    <a href="#" class="gallery-popup" title="Morning Dew">
+    <div class="project-item">
+    <div class="overlay-container" onclick="functiongo()">
+    <img src="https://media.istockphoto.com/id/1011385378/photo/colorful-oil-painting-on-canvas-texture-impressionism-image-of-seascape-paintings-with.jpg?s=170667a&w=0&k=20&c=CkL-Pt5zBsPu52lXwEjaXDrtC3lH-lqhHhZIr05Sv80=" alt="img" class="gallery-thumb-img">
+    <div class="project-item-overlay">
+    <h4>Morning Dew</h4>
+    <p>
+    <img src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="user" class="thumb-sm rounded-circle">
+    <span class="ml-2">Curtis Marion</span>
+    </p>
+    </div>
+    </div>
+    </div>
+    </a>
+    </div>
+<div class="col-md-3 col-sm-6">
+<a href="#" class="gallery-popup" title="Shake It!">
+<div class="project-item">
+<div class="overlay-container" onclick="functiongo()">
+<img src="https://cdn.sanity.io/images/f23a1pgq/pma_production/aa9a2941676b9d324369ea801bbc23d2171cefeb-2500x1800.jpg?rect=207,98,2090,1568&bg=f2f2f2&w=640&h=480&q=80&fit=clip" alt="img" class="gallery-thumb-img">
+<div class="project-item-overlay">
+<h4>Shake It!</h4>
+<p>
+<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="user" class="thumb-sm rounded-circle">
+<span class="ml-2">Curtis Marion</span>
+</p>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="col-md-3 col-sm-6">
+    <a href="#" class="gallery-popup" title="Morning Dew">
+    <div class="project-item">
+    <div class="overlay-container" onclick="functiongo()">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTktY6QeIXD_dN91FqV_VPR7gy99endJ4tqcA&usqp=CAU" alt="img" class="gallery-thumb-img">
+    <div class="project-item-overlay">
+    <h4>Morning Dew</h4>
+    <p>
+    <img src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="user" class="thumb-sm rounded-circle">
+    <span class="ml-2">Curtis Marion</span>
+    </p>
+    </div>
+    </div>
+    </div>
+    </a>
+    </div>
+<div class="col-md-3 col-sm-6">
+<a href="#" class="gallery-popup" title="Backpack Content">
+<div class="project-item">
+<div class="overlay-container" onclick="functiongo()">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTktY6QeIXD_dN91FqV_VPR7gy99endJ4tqcA&usqp=CAU" alt="img" class="gallery-thumb-img">
+<div class="project-item-overlay">
+<h4>Backpack Content</h4>
+<p>
+<img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="user" class="thumb-sm rounded-circle">
+<span class="ml-2">Curtis Marion</span>
+</p>
+</div>
+</div>
+</div>
+</a>
+ </div>
+ <div class="col-md-3 col-sm-6">
+    <a href="#" class="gallery-popup" title="Morning Dew">
+    <div class="project-item">
+    <div class="overlay-container" onclick="functiongo()">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8DNhlX1aSLlhFuDxU5bnR1AibdbLPRpN-1dnrq-VM-f8oK-RPVDxleLGvZP_knDIEIaI&usqp=CAU" alt="img" class="gallery-thumb-img">
+    <div class="project-item-overlay">
+    <h4>Morning Dew</h4>
+    <p>
+    <img src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="user" class="thumb-sm rounded-circle">
+    <span class="ml-2">Curtis Marion</span>
+    </p>
+    </div>
+    </div>
+    </div>
+    </a>
+    </div>
+<div class="col-md-3 col-sm-6">
+<a href="#" class="gallery-popup" title="Sunset Bulb Glow">
+<div class="project-item">
+<div class="overlay-container" onclick="functiongo()">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTktY6QeIXD_dN91FqV_VPR7gy99endJ4tqcA&usqp=CAU" alt="img" class="gallery-thumb-img">
+<div class="project-item-overlay">
+<h4>Sunset Bulb Glow</h4>
+<p>
+<img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="user" class="thumb-sm rounded-circle">
+<span class="ml-2">Curtis Marion</span>
+</p>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="col-md-3 col-sm-6">
+    <a href="#" class="gallery-popup" title="Morning Dew">
+    <div class="project-item">
+    <div class="overlay-container" onclick="functiongo()">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw43s0K8GWJKIdvm8Lk1KpDiSBCUatQEwfnyvqaHRdnIZwASQevOcap9zuLe9vcdZnuYA&usqp=CAU" alt="img" class="gallery-thumb-img">
+    <div class="project-item-overlay">
+    <h4>Morning Dew</h4>
+    <p>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw43s0K8GWJKIdvm8Lk1KpDiSBCUatQEwfnyvqaHRdnIZwASQevOcap9zuLe9vcdZnuYA&usqp=CAU" alt="user" class="thumb-sm rounded-circle">
+    <span class="ml-2">Curtis Marion</span>
+    </p>
+    </div>
+    </div>
+    </div>
+    </a>
+    </div>
+<div class="col-md-3 col-sm-6">
+<a href="#" class="gallery-popup" title="Open Imagination">
+<div class="project-item">
+<div class="overlay-container" onclick="functiongo()">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl1nX2GRWfPUiuRIUk_-Z8kqOet-itp4oM8djlU_vVtiKYNEWTm05IudGwRTZjkxOoo_U&usqp=CAU" alt="img" class="gallery-thumb-img">
+<div class="project-item-overlay">
+<h4>Open Imagination</h4>
+<p>
+<img src="https://media.istockphoto.com/id/1011385378/photo/colorful-oil-painting-on-canvas-texture-impressionism-image-of-seascape-paintings-with.jpg?s=170667a&w=0&k=20&c=CkL-Pt5zBsPu52lXwEjaXDrtC3lH-lqhHhZIr05Sv80=" alt="user" class="thumb-sm rounded-circle">
+<span class="ml-2">Curtis Marion</span>
+</p>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="col-md-3 col-sm-6">
+    <a href="#" class="gallery-popup" title="Morning Dew">
+    <div class="project-item">
+    <div class="overlay-container" onclick="functiongo()">
+    <img src="https://images.nightcafe.studio/jobs/3wKNmIEsxrB7Iuh1cRMt/3wKNmIEsxrB7Iuh1cRMt_6.9444x.jpg?tr=w-1600,c-at_max" alt="img" class="gallery-thumb-img">
+    <div class="project-item-overlay">
+    <h4>Morning Dew</h4>
+    <p>
+    <img src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="user" class="thumb-sm rounded-circle">
+    <span class="ml-2">Curtis Marion</span>
+    </p>
+    </div>
+    </div>
+    </div>
+    </a>
+    </div>
+
+    <div class="col-md-3 col-sm-6">
+        <a href="#" class="gallery-popup" title="Morning Dew">
+        <div class="project-item">
+        <div class="overlay-container" onclick="functiongo()">
+        <img src="https://thumbor.ixchosted.com/mRatJPLKGd-VNnjkoXdgzTGvelw=/full-fit-in/600x400/filters:rotate(90)/https://agsa-prod.s3.amazonaws.com/media/dd/images/101334-EX-WR-TAR21_Yaritji_Young_156-21_.4986cb5.jpg" alt="img" class="gallery-thumb-img">
+        <div class="project-item-overlay">
+        <h4>Morning Dew</h4>
+        <p>
+        <img src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="user" class="thumb-sm rounded-circle">
+        <span class="ml-2">Curtis Marion</span>
+        </p>
+        </div>
+        </div>
+        </div>
+        </a>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <a href="#" class="gallery-popup" title="Morning Dew">
+            <div class="project-item">
+            <div class="overlay-container" onclick="functiongo()">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmpZ_TeW0ck3qcXqx8Ag1LhPcu_AwWWS-yqw&usqp=CAU" alt="img" class="gallery-thumb-img">
+            <div class="project-item-overlay">
+            <h4>Morning Dew</h4>
+            <p>
+            <img src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="user" class="thumb-sm rounded-circle">
+            <span class="ml-2">Curtis Marion</span>
+            </p>
+            </div>
+            </div>
+            </div>
+            </a>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <a href="#" class="gallery-popup" title="Morning Dew">
+                <div class="project-item">
+                <div class="overlay-container" onclick="functiongo()">
+                <img src="https://media.istockphoto.com/id/1011385378/photo/colorful-oil-painting-on-canvas-texture-impressionism-image-of-seascape-paintings-with.jpg?s=170667a&w=0&k=20&c=CkL-Pt5zBsPu52lXwEjaXDrtC3lH-lqhHhZIr05Sv80=" alt="img" class="gallery-thumb-img">
+                <div class="project-item-overlay">
+                <h4>Morning Dew</h4>
+                <p>
+                <img src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="user" class="thumb-sm rounded-circle">
+                <span class="ml-2">Curtis Marion</span>
+                </p>
+                </div>
+                </div>
+                </div>
+                </a>
+                </div>
+<div class="col-md-3 col-sm-6">
+<a href="#" class="gallery-popup" title="Console Activity">
+<div class="project-item">
+<div class="overlay-container" onclick="functiongo()">
+<img src="https://d23.com/app/uploads/2020/01/1180w-463h_010920-riviera-art-gallery-780x440.jpg" alt="img" class="gallery-thumb-img">
+<div class="project-item-overlay">
+<h4>Console Activity</h4>
+<p>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSccgac5nCRyNaQAsxJ3QsNj1XD0jQ4BIW1eR7YSrXUYrlCOt4aQJjCWjAC0y5QhHeasfc&usqp=CAU" alt="user" class="thumb-sm rounded-circle">
+<span class="ml-2">Curtis Marion</span>
+</p>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="col-md-3 col-sm-6">
+    <a href="#" class="gallery-popup" title="Morning Dew">
+    <div class="project-item">
+    <div class="overlay-container" onclick="functiongo()">
+    <img src="https://m.media-amazon.com/images/I/516Mn3M+NGL._AC_SX569_.jpg" alt="img" class="gallery-thumb-img">
+    <div class="project-item-overlay">
+    <h4>Morning Dew</h4>
+    <p>
+    <img src="" alt="user" class="thumb-sm rounded-circle">
+    <span class="ml-2">Curtis Marion</span>
+    </p>
+    </div>
+    </div>
+    </div>
+    </a>
+    </div>
+<div class="col-md-3 col-sm-6">
+<a href="#" class="gallery-popup" title="Open Imagination">
+<div class="project-item">
+<div class="overlay-container" onclick="functiongo()">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCr2STmnnHF200vVgDdC2gAkDalW8a8j48cPKBbGuRHGzdaoAWQkIyHm1E6gW8IRd_QhE&usqp=CAU"   id="myImage" alt="img" class="gallery-thumb-img" >
+<div class="project-item-overlay">
+<h4>Open Imagination</h4>
+<p>
+<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="user" class="thumb-sm rounded-circle">
+<span class="ml-2">Curtis Marion</span>
+</p>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="col-md-3 col-sm-6">
+<a   href="#" class="gallery-popup" title="Shake It!" >
+<div class="project-item">
+<div class="overlay-container" onclick="functiongo()">
+<img src="https://images.squarespace-cdn.com/content/v1/60441f532e7099047ab6d3c5/2c9503e2-9f46-4c56-88b0-f80546e58bae/DSC00422+copy+copy.jpg?format=750w" alt="img" class="gallery-thumb-img" >
+<div class="project-item-overlay">
+<h4>Shake It!</h4>
+<p>
+<img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="user" class="thumb-sm rounded-circle">
+<span class="ml-2">Curtis Marion</span>
+</p>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<script type="text/javascript"></script>
+<script>
+       const body = document.querySelector('body'),
+      sidebar = body.querySelector('nav'),
+      toggle = body.querySelector(".toggle"),
+      searchBtn = body.querySelector(".search-box"),
+      modeSwitch = body.querySelector(".toggle-switch"),
+      modeText = body.querySelector("mode-text");
+     like=document.getElementById("1");
+
+toggle.addEventListener("click" , () =>{
+    sidebar.classList.toggle("close");
+})
+
+searchBtn.addEventListener("click" , () =>{
+    sidebar.classList.remove("close");
+})
+
+modeSwitch.addEventListener("click" , () =>{
+    body.classList.toggle("dark");
+    
+    if(body.classList.contains("dark")){
+        modeText.innerText = "Light mode";
+    }else{
+        modeText.innerText = "Dark mode";
+        
+
+    }
+});
+
+
+
+
+
+let button = document.querySelector(".like-button");
+
+button.addEventListener("click", function(e) {
+  e.preventDefault();
+  this.classList.toggle("active");
+
+  
+});
+</script>
+
+<script src="js/swiper-bundle.min.js"></script>
+<script src="js/style2.js"></script>
+
+<script>
+    
+ function functiongo(){
+
+// open the page in a new window
+var clickedElement = event.target;
+console.log(clickedElement)
+var image= clickedElement.previousElementSibling;
+console.log(image)
+console.log(image.src)
+
+// Sélectionner l'image dans l'élément parent
+
+// Faire quelque chose avec l'image
+var imageUrl = image.src;
+
+window.location.href = "{% url 'detailimages' %}?image_url=" + encodeURIComponent(imageUrl)
+
+ }
+
+
+
+
+</script>
+
+
+
+
+
+    </body>
+
+    <!-- Swiper JS -->
+      <!--Uncomment this line-->
+    <!--<script src="js/swiper-bundle.min.js"></script>-->
+
+    <!-- JavaScript -->
+      <!--Uncomment this line-->
+    <!--<-->
+</html>
+ 
+
+
+
+ 

@@ -1,0 +1,765 @@
+{% load crispy_forms_tags %}
+{% csrf_token %}
+
+{% load static %}
+
+<!DOCTYPE html>
+  <!-- Coding by CodingLab | www.codinglabweb.com -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-ART</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'assets\css\alert.css' %}">
+    <link rel="stylesheet" href="{% static 'assets\css\upload.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/style3.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets\css\style.css'  %}">
+    <link rel="stylesheet" href="{% static 'assets\css\alert.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/css/bootstrap.min.css" rel="stylesheet">    
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="{% static 'assets\css\workshop.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+      <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+      <link href="{% static 'assets\css\membredesign.css' %}" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+</head>
+
+
+
+
+
+<body >
+    <div class="header2">
+        <div class="header__left"> 
+        </div>   
+          <div class="header__middle">
+              <div class="header__option active">
+               <a href="{% url 'main' %}"> <span class="material-icons"> home </span></a>
+              </div>
+              <div class="header__input" >
+                <form action="{% url 'searchresult' %}" action='POST'>
+                  {% csrf_token %}
+
+                  <input name='searched' type="text" placeholder="Search E-ART" /></div>
+                  <div class="header__option">
+                    <button type="submit" class="btn btn-orange" style="color: orange;" >
+                      SEARCH
+                      </button>
+                      
+                  </div>       
+                
+              </form>
+  
+          <div class="header__option">
+            <a href="{% url 'explore2' %}"><span class="material-icons"> explore </span></a>
+          </div>
+  
+          
+          <div class="header__option">
+            <a href="{% url 'bibliotheque2' %}"><span class="material-icons"> local_library </span></a>
+          </div>
+        </div>
+  
+        <div class="header__right">
+          <div class="header__info">
+            <img
+            class="user__avatar"
+            src="https://bootdey.com/img/Content/avatar/avatar6.png"
+            alt=""/>
+        <a href="{% url 'profiles' %}"> <strong style="color: blanchedalmond;">&ensp;{{user.username}}</strong></a> 
+          </div>
+          <span class="material-icons"> add </span>
+          
+          <span class="material-icons"> expand_more </span>
+          
+          
+        </div>
+      </div>
+
+
+
+
+    <!------------>
+
+      
+        <!-------------->
+
+
+<div>
+    
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <!--<img src="logo.png" alt="">-->
+                </span>
+
+                <div class="text logo-text">
+                  <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'assets/images/logo.png' %}" alt="Progressus HTML5 template"></a>
+                </div>
+         
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+          <div class="menu">
+
+              <li class="search-box">
+                  <i class='bx bx-search icon'></i>
+                  <input type="text" placeholder="">
+                  
+
+
+
+              </li>
+                <li class="nav-link">
+                    <a href="{% url 'main' %}">
+                        <i class='bx bx-home-alt icon'  ></i>
+                        <span class="text nav-text" >Home</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                  <a href="{% url 'workshop' %}" >
+                      <i class='bx bxs-paint-roll icon' style="color:orange"></i>
+                      <span class="text nav-text" style="color:orange"  >Workshop</span>
+                  </a>
+              </li>
+
+                
+                <li class="nav-link">
+                  <a href="{% url 'message' %}" >
+                      <i class='bx bx-message icon' ></i>
+                      <span class="text nav-text"   >Message(4)</span>
+                  </a>
+              </li>
+
+                <li class="nav-link">
+                    <a href="{% url 'notification' %}" >
+                        <i class='bx bx-bell icon' ></i>
+                        <span class="text nav-text"  >Notifications(1)</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="{% url 'demand' %}">
+                        <i class='bx bx-git-pull-request icon'></i>
+                        <span class="text nav-text">Demand(1)</span>
+                    </a>
+                </li>
+
+
+
+
+          </div>
+
+          <div class="bottom-content">
+              <li class="">
+                  <a href="{% url 'log_out' %}">
+                      <i class='bx bx-log-out icon' ></i>
+                      <span class="text nav-text">Logout</span>
+                  </a>
+              </li>
+
+              <li class="mode">
+                  <div class="sun-moon">
+                      <i class='bx bx-moon icon moon'></i>
+                      <i class='bx bx-sun icon sun'></i>
+                  </div>
+                  <span class="mode-text text">Dark mode</span>
+
+                  <div class="toggle-switch">
+                      <span class="switch"></span>
+                  </div>
+              </li>
+              
+          </div>
+      </div>
+
+  </nav>
+
+   <div class="main__body">
+   
+   </div>
+    <!----ceci est dinamique---->
+ <!-------->
+       
+
+    <body style="">
+    <div class="container">
+    <section class="bg-light py-5">
+    <div class="container">
+    <div class="row">
+    <div class="col-12">
+    
+    <div class="container">
+      <div class="row align-items-center">
+      <div class="col-md-6">
+      <div class="mb-3">
+<h2 class="card-title">Workshop <span class="text-muted fw-normal ms-2"></span></h2>
+</div>
+</div>
+<div class="col-md-6">
+<div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
+<div>
+<ul class="nav nav-pills">
+<li class="nav-item">
+</li>
+<li class="nav-item">
+</li>
+</ul>
+</div>
+
+
+
+
+    </div>
+    </div>
+    <div class="row">
+
+      <div class="col-md-6 col-xl-4">
+        <div class="image-box image-box--shadowed white-bg style-2 mb-4">
+        <div class="overlay-container">
+        <img src="https://www.cof.ens.fr/bda/wp-content/uploads/2016/02/art-auction.jpg" alt=""  width="400" height="400">
+        <a  id="6" href="{% url 'workshopmain' %}" class="overlay-link"></a>
+        </div>
+        <div class="body">
+        <h5 class="font-weight-bold my-2">Paint</h5>
+        <p class="small">workshop01</p>
+        <div class="row d-flex align-items-center">
+        <div class="col-6">
+        <ul class="social-links small circle">
+       
+        </ul>
+        </div>
+        <div class="col-6 text-right">
+     
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal align-middle"></svg>
+          <td>
+              <ul class="list-unstyled mb-0 d-flex justify-content-end">
+                <li><a href="#" class="text-success" data-toggle="modal" data-target="#myModal" title="" data-original-title="view"><i class="far fa-eye fa-100px"></i></a>&ensp;</li>
+                <form method="POST" action="">
+                  <li><button type="submit" class="text-danger" data-toggle="tooltip" title="" data-original-title="Delete"><i class="far fa-trash-alt fa-1000px"></i></button>&ensp;</li>
+  
+                </form>
+                <li id="11"><a  id="11" href="#" class="text-warning"    data-toggle="kaka" data-target="#kaka"  data-original-title="Quit"><i  id="11" class="fa fa-times-circle" aria-hidden="true"></i></a>&ensp;</li>
+              </ul>
+            </td>    </div>
+    
+        
+        </div>
+        </div>
+        </div>
+        </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    {% for workshop in workshops %}
+
+    <div class="col-md-6 col-xl-4">
+      <div class="image-box image-box--shadowed white-bg style-2 mb-4">
+      <div class="overlay-container">
+      <img src="{{workshop.image.url}}" alt=""  width="400" height="400">
+      <a  id="6" href="{% url 'workshopmain' %}" class="overlay-link"></a>
+      </div>
+      <div class="body">
+      <h5 class="font-weight-bold my-2">{{workshop.name}}</h5>
+      <p class="small">{{workshop.description}}</p>
+      <div class="row d-flex align-items-center">
+      <div class="col-6">
+      <ul class="social-links small circle">
+     
+      </ul>
+      </div>
+      <div class="col-6 text-right">
+   
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal align-middle"></svg>
+        <td>
+            <ul class="list-unstyled mb-0 d-flex justify-content-end">
+              <li><a href="#" class="text-success" data-toggle="modal" data-target="#myModal" title="" data-original-title="view"><i class="far fa-eye fa-100px"></i></a>&ensp;</li>
+              <form method="POST" action="{% url 'delete_image' workshop.id %}">
+                {% csrf_token %}
+                <li><button type="submit" class="text-danger" data-toggle="tooltip" title="" data-original-title="Delete"><i class="far fa-trash-alt fa-1000px"></i></button>&ensp;</li>
+
+              </form>
+              <li id="11"><a  id="11" href="#" class="text-warning"    data-toggle="kaka" data-target="#kaka"  data-original-title="Quit"><i  id="11" class="fa fa-times-circle" aria-hidden="true"></i></a>&ensp;</li>
+            </ul>
+          </td>    </div>
+  
+      
+      </div>
+      </div>
+      </div>
+      </div>
+
+    {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  </div>
+  </div>
+  </div>
+  <!-- Add a separator between the latest workshop and the existing workshops -->
+
+<!-- Display the existing workshops -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+    </div>
+    </div>
+    </section>
+    </div>
+
+</div>
+
+
+</head>
+
+
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript">
+    
+</script>
+
+
+</div>
+
+
+
+
+
+
+<!-- Modal HTML Markup -->
+<div id="modal" class="modal fade">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h1  class="modal-title">  Workshop registration</i> </h1>
+          </div>
+          <div class="modal-body">
+              <form class="form-horizontal" action="{%  url 'workshop'  %}"  method='POST' enctype="multipart/form-data">
+                {% csrf_token %}
+
+
+                <div class="form-group">
+                  <div>
+                    
+
+<div class="file-upload">
+  <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
+
+  <div class="image-upload-wrap">
+    <input class="file-upload-input"  name="image" type='file' onchange="readURL(this);" accept="image/*" />
+    <div class="drag-text">
+      <h3>Drag and drop a file or select add Image</h3>
+    </div>
+  </div>
+  <div class="file-upload-content">
+    <img class="file-upload-image" src="#" alt="your image" />
+    <div class="image-title-wrap">
+      <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+    </div>
+  </div>
+</div>
+
+
+                <div class="form-group">
+                  <label for="Name" class="control-label">Name</label>
+                  <div>
+                      <input  type="text" class="form-control" name="name" value="" autofocus>
+                  </div>
+              </div>
+
+              
+            
+            <div class="form-group">
+              <label for="description" class="control-label">Description</label>
+             <textarea class="form-control" name="description" rows="3"></textarea>
+          </div>
+         
+             
+
+              <div class="form-group">
+                <div>
+                  <button type="submit" class="btn btn-primary" >
+                    Save
+                    </button>
+                    
+                </div>
+              </div>
+          </form>
+              </form>
+
+          </div>
+      </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade custom-modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+          <div class="col-lg-8 pb-5">
+            
+          <div class="d-flex justify-content-end pb-3">
+          
+            <div class="row">
+
+            
+             
+              </div>
+             
+
+
+          </select>
+          </div>
+          </div>
+          <table class="table table-hover mb-0">
+          <thead>
+          <tr>
+          <th>Atelier#</th>
+          <th>Date Purchased</th>
+          <th>Status</th>
+          <th>Total work</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+          <td><a class="navi-link" href="#order-details" data-toggle="modal">Photorealism
+      
+          </a></td>
+          <td>August 08, 2023</td>
+          <td><span class="badge badge-danger m-0">Done</span></td>
+          <td><span>&ensp;(06)</span></td>
+          </tr>
+          <tr>
+          <td><a class="navi-link" href="#order-details" data-toggle="modal">Digital</a></td>
+          <td>July 21, 2023</td>
+          <td><span class="badge badge-info m-0">In Progress</span></td>
+          <td>&ensp;(15)</td>
+          </tr>
+          <tr>
+          <td><a class="navi-link" href="#order-details" data-toggle="modal">Painterly
+          </a></td>
+          <td>June 15, 2023</td>
+          <td><span class="badge badge-success m-0">Started</span></td>
+          <td>&ensp;(08)</td>
+          </tr>
+          <tr>
+          <td><a class="navi-link" href="#order-details" data-toggle="modal">
+              Fauvism</a></td>
+          <td>May 19, 2023</td>
+          <td><span class="badge badge-success m-0">Started</span></td>
+          <td>&ensp;(16)</td>
+          </tr>
+          <tr>
+          <td><a class="navi-link" href="#order-details" data-toggle="modal">Abstraction</a></td>
+          <td>April 04, 2023</td>
+          <td><span class="badge badge-success m-0">Started</span></td>
+          <td>&ensp;(39)</td>
+          </tr>
+          <tr>
+          <td><a class="navi-link" href="#order-details" data-toggle="modal">Photorealism</a></td>
+          <td>March 30, 2023</td>
+          <td><span class="badge badge-success m-0">Started</span></td>
+          <td>&ensp;(07)</td>
+          </tr>
+          </tbody>
+          </table>
+          </div>
+          </div>
+          </div>
+          </div>
+          <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/js/bootstrap.bundle.min.js"></script>
+          <script type="text/javascript">
+              
+          </script>
+        </video>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript">
+        
+    </script>
+    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    
+   
+
+
+</body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script> window.onclick = e => {
+  // console.log(e.target);  // to get the element
+  // console.log(e.target.classList);
+  // console.log(e.target.getAttribute("id"));
+ 
+  
+  
+console.log(e.target.closest(".col-md-6 col-xl-4"))
+ if(e.target.getAttribute("id")==11){
+  var b=e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
+  var a=e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
+
+      console.log("yes");
+  
+Confirm.open({
+    title: 'Confirm',
+    message: 'Are you sure you want to leave this workshop ?',
+    onok: () => {
+        a.removeChild(b);
+    }})
+
+  
+  ;}
+}
+      
+     
+
+
+
+      </script>
+
+
+
+
+
+
+
+    <script>
+        
+        const body = document.querySelector('body'),
+      sidebar = body.querySelector('nav'),
+      toggle = body.querySelector(".toggle"),
+      searchBtn = body.querySelector(".search-box"),
+      modeSwitch = body.querySelector(".toggle-switch"),
+      modeText = body.querySelector("mode-text");
+     like=document.getElementById("1");
+
+toggle.addEventListener("click" , () =>{
+    sidebar.classList.toggle("close");
+})
+
+searchBtn.addEventListener("click" , () =>{
+    sidebar.classList.remove("close");
+})
+
+modeSwitch.addEventListener("click" , () =>{
+    body.classList.toggle("dark");
+    
+    if(body.classList.contains("dark")){
+        modeText.innerText = "Light mode";
+    }else{
+        modeText.innerText = "Dark mode";
+        
+
+    }
+});
+
+
+
+</script>
+
+
+
+     </script>
+
+<script src="js/swiper-bundle.min.js"></script>
+<script src="{% static 'js/style2.js' %}"></script>
+
+<!-- <script>
+var input = document.getElementById("myInput");
+
+// Execute a function when the user presses a key on the keyboard
+
+input.addEventListener("keypress", function(event) {
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === "Enter") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+     window.open("{% url 'searchresult' %}","_self")
+  }
+});
+</script> -->
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="bootstrap.confirm.js"></script>
+
+<script src="{% static 'assets/js/alert2.js' %}"></script>
+
+   
+<script>
+	function readURL(input) {
+  if (input.files && input.files[0]) {
+
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      $('.image-upload-wrap').hide();
+
+      $('.file-upload-image').attr('src', e.target.result);
+      $('.file-upload-content').show();
+
+      $('.image-title').html(input.files[0].name);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+
+  } else {
+    removeUpload();
+  }
+}
+
+function removeUpload() {
+  $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+  $('.file-upload-content').hide();
+  $('.image-upload-wrap').show();
+}
+$('.image-upload-wrap').bind('dragover', function () {
+		$('.image-upload-wrap').addClass('image-dropping');
+	});
+	$('.image-upload-wrap').bind('dragleave', function () {
+		$('.image-upload-wrap').removeClass('image-dropping');
+});
+
+</script>
+       
+
+
+
+   
+   
+
+    </body>
+
+    <!-- Swiper JS -->
+      <!--Uncomment this line-->
+    <!--<script src="js/swiper-bundle.min.js"></script>-->
+
+    <!-- JavaScript -->
+      <!--Uncomment this line-->
+    <!--<-->
+</html>
+ 
+

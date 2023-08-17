@@ -1,0 +1,602 @@
+{% load static %}
+
+<!DOCTYPE html>
+  <!-- Coding by CodingLab | www.codinglabweb.com -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="{% static 'assets/css/style3.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets\css\style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <!----===== Boxicons CSS ===== -->
+   
+    
+    <!--<title>Dashboard Sidebar Menu</title>--> 
+
+
+    <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--<title>Responsive Card Slider</title>-->
+
+        <!-- Swiper CSS -->
+        <link rel="stylesheet" href="css/swiper-bundle.min.css">
+        <meta charset="utf-8">
+            
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- CSS -->
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>E-ART</title>
+        <link rel="stylesheet" href="assets/css/style3.css" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+      
+</head>
+
+
+
+
+
+<div class="header2">
+    <div class="header__left"> 
+    </div>   
+      <div class="header__middle">
+          <div class="header__option active">
+          <a href="{% url 'main' %}">  <span class="material-icons"> home </span></a>
+          </div>
+          <div class="header__input" >
+              <span class="material-icons"> search </span><input type="text" placeholder="Search E-ART" />
+            </div>       
+            
+
+      <div class="header__option">
+      <a href="{% url 'explore2' %}"> <span class="material-icons"> explore </span></a>
+      </div>
+
+      
+      <div class="header__option">
+        <a href="{% url 'bibliotheque2' %}"><span class="material-icons"> local_library </span></a>
+      </div>
+    </div>
+
+    <div class="header__right">
+      <div class="header__info">
+        <img
+          class="user__avatar"
+          src="https://bootdey.com/img/Content/avatar/avatar6.png"
+          alt=""/>
+      <a href="{% url 'profiles' %}"> <strong style="color: blanchedalmond;">&ensp;{{user.username}}</strong></a> 
+      </div>
+      <span class="material-icons"> add </span>
+      
+      <span class="material-icons"> expand_more </span>
+      
+      
+    </div>
+  </div>
+
+      <div class="container bootdey">
+        <div ng-app="myApp">
+        <div ng-controller="ctrlApp" id="myApp">
+        
+        
+        
+        <div class="alerts" ng-shw="noty.queue.length>0">
+        <div class="alert  alert-dismissable fade in pull-right" ng-repeat="m in noty.queue">
+        </div>
+        </div>
+                           
+                    
+        
+       
+            
+            </div>
+</div>
+
+</div>
+</div>
+</div>   
+    
+</div>
+        
+
+
+
+    <!------------>
+
+      
+        <!-------------->
+
+
+<div>
+    
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <!--<img src="logo.png" alt="">-->
+                </span>
+
+                <div class="text logo-text">
+                    <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'assets/images/logo.png' %}" alt="Progressus HTML5 template"></a>
+                </div>
+         
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                <li class="search-box">
+                    <i class='bx bx-search icon'></i>
+                    <input type="text" placeholder="">
+                    
+
+
+
+
+
+
+
+                </li>
+
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="{% url 'main' %}">
+                            <i class='bx bx-home-alt icon' ></i>
+                            <span class="text nav-text"  >Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                      <a href="{% url 'workshop' %}" >
+                          <i class='bx bxs-paint-roll icon' style="color:orange"></i>
+                          <span class="text nav-text"  style ="color:orange" >Workshop</span>
+                      </a>
+                  </li>
+
+                    
+                    <li class="nav-link">
+                      <a href="{% url 'message' %}" >
+                          <i class='bx bx-message icon' ></i>
+                          <span class="text nav-text"   >Message(4)</span>
+                      </a>
+                  </li>
+
+                    <li class="nav-link">
+                        <a href="{% url 'notification' %}" >
+                            <i class='bx bx-bell icon' ></i>
+                            <span class="text nav-text"  >Notifications(1)</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="{% url 'demand' %}">
+                            <i class='bx bx-git-pull-request icon'></i>
+                            <span class="text nav-text">Demand</span>
+                        </a>
+                    </li>
+  
+
+
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a href="{% url 'log_out' %}">
+                        <i class='bx bx-log-out icon' ></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+                
+            </div>
+        </div>
+
+    </nav>
+
+
+
+
+
+    <!----ceci est dinamique---->
+
+ 
+  
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="main__body" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+            body{
+        background:#f3f3f3;
+        color: #616f80;
+    }
+    .card {
+        border: none;
+        margin-bottom: 24px;
+        -webkit-box-shadow: 0 0 13px 0 rgba(236,236,241,.44);
+        box-shadow: 0 0 13px 0 rgba(236,236,241,.44);
+    }
+    
+    .avatar-xs {
+        height: 2.3rem;
+        width: 2.3rem;
+    }
+        </style>
+    </head>
+    <body>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <div class="container">
+    <div class="row">
+    <div class="col-xl-3 col-md-6">
+    <div class="card bg-pattern">
+    <div class="card-body">
+    <div class="float-right">
+    <i class="fa fa-archive text-primary h4 ml-3"></i>
+    </div>
+    <h5 class="font-size-20 mt-0 pt-1">05</h5>
+    <p class="text-muted mb-0">Total Activity</p>
+    </div>
+    </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+    <div class="card bg-pattern">
+    <div class="card-body">
+    <div class="float-right">
+    <i class="fa fa-th text-primary h4 ml-3"></i>
+    </div>
+    <h5 class="font-size-20 mt-0 pt-1">03</h5>
+    <p class="text-muted mb-0">Completed Activity</p>
+    </div>
+    </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+    <div class="card bg-pattern">
+    <div class="card-body">
+    <div class="float-right">
+    <i class="fa fa-file text-primary h4 ml-3"></i>
+    </div>
+    <h5 class="font-size-20 mt-0 pt-1">02</h5>
+    <p class="text-muted mb-0">Pending Activity</p>
+    </div>
+    </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+    <div class="card">
+    <div class="card-body">
+    <form>
+    <div class="form-group mb-0">
+    <label>Search</label>
+    <div class="input-group mb-0">
+    <input type="text" class="form-control" placeholder="Search..." aria-describedby="project-search-addon" />
+    <div class="input-group-append">
+    <button class="btn btn-danger" type="button" id="project-search-addon"><i class="fa fa-search search-icon font-12"></i></button>
+    </div>
+    </div>
+    </div>
+    </form>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    <div class="row">
+    <div class="col-lg-12">
+    <div class="card">
+    <div class="card-body">
+    <div class="table-responsive project-list">
+    <table class="table project-table table-centered table-nowrap">
+    <thead>
+    <tr>
+    <th scope="col">#</th>
+    <th scope="col">Activity</th>
+    <th scope="col">Start Date</th>
+    <th scope="col">Status</th>
+    
+    <th scope="col">Progress</th>
+    <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <th scope="row">1</th>
+    <td><strong>New admin Design</strong></td>
+    <td>02/5/2019</td>
+    <td>
+    <span class="text-success font-12"><i class="mdi mdi-checkbox-blank-circle mr-1"></i> Completed</span>
+    </td>
+  
+    <td>
+    <p class="mb-0">Progress<span class="float-right">100%</span></p>
+    <div class="progress mt-2" style="height: 5px;">
+    <div class="progress-bar bg-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    </td>
+    <td>
+    <div class="action">
+    <a href="#" class="text-success mr-4" data-toggle="tooltip" data-placement="top" title data-original-title="Edit"> <i class="fa fa-pencil h5 m-0"></i></a>
+    <a href="#" class="text-danger" data-toggle="tooltip" data-placement="top" title data-original-title="Close"> <i class="fa fa-remove h5 m-0"></i></a>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <th scope="row">2</th>
+    <td><strong>Landing page Design</strong></td>
+    <td>04/6/2019</td>
+    <td>
+    <span class="text-primary font-12"><i class="mdi mdi-checkbox-blank-circle mr-1"></i> Pending</span>
+   
+    
+    </td>
+    <td>
+    <p class="mb-0">Progress<span class="float-right">78%</span></p>
+    <div class="progress mt-2" style="height: 5px;">
+    <div class="progress-bar bg-primary" role="progressbar" style="width: 78%;" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    </td>
+    <td>
+    <div class="action">
+    <a href="#" class="text-success mr-4" data-toggle="tooltip" data-placement="top" title data-original-title="Edit"> <i class="fa fa-pencil h5 m-0"></i></a>
+    <a href="#" class="text-danger" data-toggle="tooltip" data-placement="top" title data-original-title="Close"> <i class="fa fa fa-remove h5 m-0"></i></a>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <th scope="row">3</th>
+    <td><strong>Multipurpose Landing Template</strong></td>
+    <td>06/6/2019</td>
+    <td>
+    <span class="text-success font-12"><i class="mdi mdi-checkbox-blank-circle mr-1"></i> Completed</span>
+    </td>
+    <td>
+    
+    <p class="mb-0">Progress<span class="float-right">100%</span></p>
+    <div class="progress mt-2" style="height: 5px;">
+    <div class="progress-bar bg-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    </td>
+    <td>
+    <div class="action">
+    <a href="#" class="text-success mr-4" data-toggle="tooltip" data-placement="top" title data-original-title="Edit"> <i class="fa fa-pencil h5 m-0"></i></a>
+    <a href="#" class="text-danger" data-toggle="tooltip" data-placement="top" title data-original-title="Close"> <i class="fa fa fa-remove h5 m-0"></i></a>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <th scope="row">4</th>
+    <td><strong>Blog Template Design</strong></td>
+    <td>07/5/2019</td>
+    <td>
+    <span class="text-success font-12"><i class="mdi mdi-checkbox-blank-circle mr-1"></i> Completed</span>
+    </td>
+    <td>
+    
+    
+    <p class="mb-0">Progress<span class="float-right">100%</span></p>
+    <div class="progress mt-2" style="height: 5px;">
+    <div class="progress-bar bg-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+</td>
+<td>
+    <div class="action">
+    <a href="#" class="text-success mr-4" data-toggle="tooltip" data-placement="top" title data-original-title="Edit"> <i class="fa fa-pencil h5 m-0"></i></a>
+    <a href="#" class="text-danger" data-toggle="tooltip" data-placement="top" title data-original-title="Close"> <i class="fa fa fa-remove h5 m-0"></i></a>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <th scope="row">5</th>
+    <td><strong>Brand logo design</strong></td>
+    <td>08/6/2019</td>
+    <td>
+    <span class="text-primary font-12"><i class="mdi mdi-checkbox-blank-circle mr-1"></i> Pending</span>
+   
+    
+    <td>
+    <p class="mb-0">Progress<span class="float-right">54%</span></p>
+    <div class="progress mt-2" style="height: 5px;">
+    <div class="progress-bar bg-primary" role="progressbar" style="width: 54%;" aria-valuenow="54" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    </td>
+    <td>
+    <div class="action">
+    <a href="#" class="text-success mr-4" data-toggle="tooltip" data-placement="top" title data-original-title="Edit"> <i class="fa fa-pencil h5 m-0"></i></a>
+    <a href="#" class="text-danger" data-toggle="tooltip" data-placement="top" title data-original-title="Close"> <i class="fa fa fa-remove h5 m-0"></i></a>
+    </div>
+    </td>
+    </tr>
+   
+  
+    </table>
+    </div>
+    
+    <div class="pt-3">
+    <ul class="pagination justify-content-end mb-0">
+    <li class="page-item disabled">
+    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item active"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+    <a class="page-link" href="#">Next</a>
+    </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    </div>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript">
+        
+    </script>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+	
+
+
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <script>
+        
+        const body = document.querySelector('body'),
+      sidebar = body.querySelector('nav'),
+      toggle = body.querySelector(".toggle"),
+      searchBtn = body.querySelector(".search-box"),
+      modeSwitch = body.querySelector(".toggle-switch"),
+      modeText = body.querySelector("mode-text");
+     like=document.getElementById("1");
+
+toggle.addEventListener("click" , () =>{
+    sidebar.classList.toggle("close");
+})
+
+searchBtn.addEventListener("click" , () =>{
+    sidebar.classList.remove("close");
+})
+
+modeSwitch.addEventListener("click" , () =>{
+    body.classList.toggle("dark");
+    
+    if(body.classList.contains("dark")){
+        modeText.innerText = "Light mode";
+    }else{
+        modeText.innerText = "Dark mode";
+        
+
+    }
+});
+
+
+
+
+
+let button = document.querySelector(".like-button");
+
+button.addEventListener("click", function(e) {
+  e.preventDefault();
+  this.classList.toggle("active");
+
+  
+});
+
+
+
+
+
+
+    </script>
+
+<script src="js/swiper-bundle.min.js"></script>
+<script src="{% static 'js/style2.js' %}"></script>
+
+
+
+
+
+
+
+    </body>
+
+    <!-- Swiper JS -->
+      <!--Uncomment this line-->
+    <!--<script src="js/swiper-bundle.min.js"></script>-->
+
+    <!-- JavaScript -->
+      <!--Uncomment this line-->
+    <!--<-->
+</html>
+ 
+
+
+</body>
+
+
+
+
+
+
+</html>
+ 
